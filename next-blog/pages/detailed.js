@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Row, Col, Icon, Breadcrumb, Affix } from 'antd';
+import axios from 'axios'
 
 import Header from '../components/Header';
 import Author from '../components/Author';
@@ -108,5 +109,20 @@ const Detailed = () => {
     </>
   );
 }
-
+Detailed.getInitialProps=async (ctx)=>{
+  let {id} =ctx.query
+  if(id){
+    let promise=new Promise(resolve=>{
+      axios.get("http://127.0.0.1:7001/default/getArticleById",{
+        params:{
+          id
+        }
+      }).then(res=>{
+        resolve(res.data.data[0])
+      })
+    })
+    console.log(await promise)
+     return await promise
+  }
+}
 export default Detailed;

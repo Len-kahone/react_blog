@@ -2,7 +2,9 @@
 
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/getInfo', controller.default.index.index);
+  router.get('/', controller.home.index);
+  router.get('/default/getArticleList', controller.home.getArticleList);
+  router.get('/default/getArticleById', controller.home.getArticleById);
 
 };
 
