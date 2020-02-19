@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Head from 'next/head';
 import { Row, Col, List, Icon } from 'antd';
 import Header from '../components/Header';
@@ -7,9 +7,19 @@ import Advert from '../components/Advert';
 import Footer from '../components/Footer';
 import '../public/style/pages/index.css'
 import Link from "next/link"
-import axios from 'axios'
+import axios from '../utils/request'
+import { getArticleList } from '../api/index';
 
 const Home = (list) => {
+  useEffect(()=>{
+
+    // async function get(){
+    //  const list= await getList()
+    //  console.log(list);
+    // }
+    // get()
+
+  })
   const [mylist, setMylist] = useState(list.data);
   return (
     <div>
@@ -48,14 +58,7 @@ const Home = (list) => {
   );
 };
 Home.getInitialProps = async ()=>{
-  let promise=new Promise(resolve=>{
-     axios.get('http://127.0.0.1:7001/default/getArticleList').then(
-      (res)=>{
-        resolve(res.data)
-      }
-    )
-  })
-  
-  return await promise
+ 
+  return await getArticleList();
 }
 export default Home;
