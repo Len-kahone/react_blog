@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const request = axios.create({
   timeout: 10000,
-  baseURL: 'http://127.0.0.1:7001/default/'
+  baseURL: 'http://127.0.0.1:7001/default/',
+ 
 });
 
 request.interceptors.response.use(

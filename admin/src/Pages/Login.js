@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card, Input, Icon, Button, Spin } from 'antd';
+import {login} from '../api/'
 
 import '../static/css/Login.css';
 
@@ -10,6 +11,9 @@ const [password, setPassword] = useState('');
 const [isLoading, setIsLoading] = useState(false);
   const checkLogin = () => {
     setIsLoading(true);
+    login({userName:'kahone',password:123}).then(res=>{
+      console.log(res)
+    })
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);

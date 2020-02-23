@@ -38,7 +38,7 @@ module.exports = appInfo => {
   };
   // 配置跨域
   config.security = {
-    scrf: {
+    csrf: {
       enable: false,
     },
     domainWhiteList: [ '*' ],

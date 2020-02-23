@@ -5,8 +5,8 @@ import {BrowserRouter as Router,Route,Redirect} from 'react-router-dom'
 function Main(){
     return (
       <Router>
-        <Route path="/login" exact component={Login}></Route>
-        <Route path="/AdminIndex" exact component={AdminIndex}></Route>
+        <Route path="/login"  component={Login}></Route>
+        <Route path="/index"  component={AdminIndex}></Route>
         {/* <Redirect from="/" to="/login"></Redirect> */}
       </Router>
     );
